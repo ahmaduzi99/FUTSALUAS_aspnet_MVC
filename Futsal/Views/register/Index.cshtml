@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "_Nolayout";
+}
+
+@model Users
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="register-box">
+        <div class="hero2">
+            <div class="form-box2">
+                <a href="/home/index" class="close-btn2">&times;</a>
+                <h2>Register</h2>
+             <form method="post" asp-controller="users" asp-action="Create">
+                    <div class="input-field">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" asp-for="username" class="field" placeholder="Username">
+                      
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <input type="text" asp-for="email" class="field" placeholder="Your Email">
+                      
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-mobile-phone" aria-hidden="true"></i>
+                        <input type="number" asp-for="phone" class="field" placeholder="Number Phone">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" asp-for="password" class="field" placeholder="Password">
+                    </div>
+                    <input type="checkbox" class="check-box" required><span>I accept all the terms & conditions.</span>
+                    <button type="submit" class="submit-btn2">Register</button>
+                </form>
+                <div class="aside2">
+                    <p>Already have an account? <a href="/login/index">Log In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

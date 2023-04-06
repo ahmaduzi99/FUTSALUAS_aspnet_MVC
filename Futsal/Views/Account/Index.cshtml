@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_Nolayout";
+}
+
+@model Login
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-box">
+        <div class="hero">
+            <div class="form-box">
+                <a href="/home/index" class="close-btn">&times;</a>
+                <h2>Login</h2>
+                <form id="login" class="input-group" method="post" asp-action="index">
+                    <div class="input-field">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" asp-for="Username" class="field" placeholder="Username" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" asp-for="Password" class="field" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Log In</button>
+                </form>
+                <div class="aside">
+                    <a href="">Forgot Password?</a>
+                    <p>Don't have an account? <a href="/register/index">Register Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
