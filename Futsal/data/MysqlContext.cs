@@ -11,8 +11,9 @@ namespace Futsal.data
              
         }
 
-         public DbSet<booking> Book { get; set; }
-
-        public DbSet<Users> User { get; set; }
-    }
+        public DbSet<booking> Book { get; set; }
+		public DbSet<lapangan> lapang { get; set; }
+		public DbSet<Admin> admins { get; set; }
+        public DbSet<Status> Statuses { get; set; }
+	}
 }

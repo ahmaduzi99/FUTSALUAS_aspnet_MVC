@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "_Nolayout";
 }
+@model List<lapangan>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,10 +25,11 @@
                 <li><a href="#about">ABOUT</a></li>
                 <li><a href="#book">BOOKING</a></li>
                 <li><a href="#contact">CONTACT PERSON</a></li>
+                <li><a href="/jadwal/index">Jadwal</a></li>
             </ul>
         </div>
         <div class="signin">
-            <a href="/account/index">Sign In</a>
+            <a href="/account/index">Admin SignIn</a>
         </div>
         <i class="fa-solid fa-bars" onclick="showMenu()"></i>
     </nav>
@@ -84,160 +86,90 @@
 
     <h1 class="head" id="book">Start Your Booking</h1>
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <img src="images/Bigfoot-futsal.jpg" alt="rover" />
-            </div>
-            <div class="card-body">
-                <div class="namerate">
-                    <h3>Bigfoot Futsal</h3>
-                    <div class="ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+        @foreach (var lapangan in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="~/upload/@lapangan.photo" alt="rover" />
+                    </div>
+                    <div class="card-body">
+                        <div class="namerate">
+                            <h3>@lapangan.NamaLapang</h3>
+                            <div class="ratings">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>@lapangan.alamat</span>
+                        </div>
+                        <div class="details">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>@lapangan.number</span>
+                        </div>
+                        <a href="/booking/create/@lapangan.Id" class="book">Book Now</a>
                     </div>
                 </div>
-                <div class="details">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Cimindi no 80</span>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>0853-1423-4291</span>
-                </div>
-                <a href="/booking/index" class="book">Book Now</a>
+            </div>
+        }
+    </div>
+
+
+
+    <!-- About -->
+
+    <section class="description">
+        <h2>Booking Now Made A Lot Easier!</h2>
+        <a href="#book"> Book Now</a>
+    </section>
+
+    <!-- Contact -->
+
+    <section class="contact" id="contact">
+        <div class="contact-about">
+            <h3>About US</h3>
+            <p>We are the easiest way to find playing spaces around you. Find venues, invite players, challenge teams, participate in a list of events and find playing spaces around you.</p>
+
+        </div>
+        <div class="contact-contact">
+            <h3>Contact US</h3>
+            <div class="log">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <p>ahmaduziagustus2001@gmail.com</p>
+            </div>
+            <div class="log">
+                <i class="fa-solid fa-phone"></i>
+                <p>0853-1423-4191</p>
+            </div>
+            <div class="icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <img src="images/Dharan-futsal.jpg" alt="rover" />
-            </div>
-            <div class="card-body">
-                <div class="namerate">
-                    <h3>Integer Futsal</h3>
-                    <div class="ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Cimindi No 81</span>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>0877-1945-1989</span>
-                </div>
-                <a href="/booking/index" class="book">Book Now</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <img src="images/BB-futsal.jpg" alt="rover" />
-            </div>
-            <div class="card-body">
-                <div class="namerate">
-                    <h3>Getch Futsal</h3>
-                    <div class="ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Cimindi NO 82</span>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>0877-1945-1989</span>
-                </div>
-                <a href="/booking/index" class="book">Book Now</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <img src="images/Hamro-futsal.jpg" alt="rover" />
-            </div>
-            <div class="card-body">
-                <div class="namerate">
-                    <h3>Neophite Futsal</h3>
-                    <div class="ratings">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Cimindi NO 83</span>
-                </div>
-                <div class="details">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>0877-1945-1989</span>
-                </div>
-                <a href="/booking/index" class="book">Book Now</a>
-            </div>
-        </div>
+    </section>
+    <footer>Created By Achmad Fauzi Indonesia <i class="fa-solid fa-heart"></i></footer>
 
-        <!-- About -->
+    <!-- JavaScript -->
 
-        <section class="description">
-            <h2>Booking Now Made A Lot Easier!</h2>
-            <a href="#book"> Book Now</a>
-        </section>
-
-        <!-- Contact -->
-
-        <section class="contact" id="contact">
-            <div class="contact-about">
-                <h3>About US</h3>
-                <p>We are the easiest way to find playing spaces around you. Find venues, invite players, challenge teams, participate in a list of events and find playing spaces around you.</p>
-
-            </div>
-            <div class="contact-contact">
-                <h3>Contact US</h3>
-                <div class="log">
-                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                    <p>ahmaduziagustus2001@gmail.com</p>
-                </div>
-                <div class="log">
-                    <i class="fa-solid fa-phone"></i>
-                    <p>0853-1423-4191</p>
-                </div>
-                <div class="icons">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-linkedin"></i>
-                </div>
-            </div>
-        </section>
-        <footer>Created By Achmad Fauzi Indonesia <i class="fa-solid fa-heart"></i></footer>
-
-        <!-- JavaScript -->
-
-        <script>
-            var navLinks = document.getElementById("navLinks");
-            function showMenu(){
-                navLinks.style.display = "block";
-                navLinks.style.position = "fixed";
-                navLinks.style.right = "0";
-            }
-            function hideMenu(){
-                navLinks.style.display = "none";
-                navLinks.style.right = "-200px";
-            }
-        </script>
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu() {
+            navLinks.style.display = "block";
+            navLinks.style.position = "fixed";
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.display = "none";
+            navLinks.style.right = "-200px";
+        }
+    </script>
 
 </body>
 </html>

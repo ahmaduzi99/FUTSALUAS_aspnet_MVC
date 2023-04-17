@@ -2,7 +2,7 @@
 	Layout = "_Nolayout";
 }
 
-@model List<booking>
+@model List<Admin>
 
 
 <!DOCTYPE html>
@@ -16,10 +16,10 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="~/css/stylee.css">
 
-	<title>AdminHub</title>
+	<title> Daftar List User Booking</title>
 </head>
 <body>
-	
+
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
@@ -41,7 +41,7 @@
 				</a>
 			</li>
 			<li>
-				<a href=/jadwal/index>
+				<a href=/users/index>
 					<i class='bx bxs-doughnut-chart'></i>
 					<span class="text">Jadwal</span>
 				</a>
@@ -53,7 +53,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/booking/index">
+				<a href="#">
 					<i class='bx bxs-group'></i>
 					<span class="text">Booking </span>
 				</a>
@@ -113,7 +113,10 @@
 						</li>
 					</ul>
 				</div>
-				
+				<a href="/admin/create" class="btn btn-primary">
+					<i class='bx bxs-cloud-download'></i>
+					<span class="text">Tambah</span>
+				</a>
 			</div>
 
 			<ul class="box-info">
@@ -123,7 +126,7 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>List Booking</h3>
+						<h3>Akun Admin</h3>
 						<i class='bx bx-search'></i>
 						<i class='bx bx-filter'></i>
 					</div>
@@ -131,27 +134,29 @@
 						<thead>
 							<tr>
 								<th>User</th>
-								<th>Nama Lapang</th>
-								<th>Tanggal Booking</th>
-								<th>Jam Booking</th>
-								<th>Jam BErakhir</th>
-								<th>Status</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>Alamat</th>
+								<th>Action</th>
+
 							</tr>
 						</thead>
 						<tbody>
-							   @foreach (var booking in Model)
+							@foreach (var admin in Model)
 							{
 								<tr>
 									<td>
-										
-										<p>@booking.nama</p>
-									</td>
-									<td>@booking.Lapangan.NamaLapang</td>
-									<td>@booking.date</td>
-									<td>@booking.start</td>
-									<td>@booking.end</td>
-									<td>@booking.Status.Stat</td>
 
+										<p>@admin.username</p>
+									</td>
+									<td>@admin.email</td>
+									<td>@admin.phone</td>
+									<td>@admin.alamat</td>
+									<td>
+										<a href="/admin/detail/@admin.Id" class="btn btn-success">Detail</a>
+										<a href="/admin/edit/@admin.Id" class="btn btn-warning">Edit</a>
+										<a href="/admin/delete/@admin.Id" class="btn btn-danger">Delete</a>
+									</td>
 								</tr>
 							}
 

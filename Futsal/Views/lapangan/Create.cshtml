@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "_Nolayout";
+}
+
+@model lapangan
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-box">
+        <div class="hero">
+            <div class="form-box">
+                <a href="/dashboard/index" class="close-btn">&times;</a>
+                <h2>Tambah Lapangan</h2>
+                <form method="post" enctype="multipart/form-data" asp-controller="Lapangan" asp-action="Create">
+                    <div class="input-field">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" asp-for="NamaLapang" class="field" placeholder="Nama Lapang" required>
+                    </div>
+                     <div class="input-field">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <input type="text" asp-for="alamat" class="field" placeholder="Alamat" required>
+                    </div>
+                     <div class="input-field">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <input type="number" asp-for="number" class="field" placeholder="Number Phone" pattern="[0-9]{11}" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-photo-film" aria-hidden="true"></i>
+                        <input type="file" asp-for="photo" class="field" placeholder="Silahkan upload foto lapangan" accept=".png,.jpg,.jpeg" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Lapangan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

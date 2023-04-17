@@ -4,6 +4,8 @@ using Futsal.Models.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using System.Security.Claims;
 
 namespace Futsal.Controllers
@@ -12,26 +14,26 @@ namespace Futsal.Controllers
     {
 
         private readonly MysqlContext _mysqlContext;
+		
 
-        public AccountController(MysqlContext mysqlContext)
+		public AccountController(MysqlContext mysqlContext)
         {
             _mysqlContext = mysqlContext;
         }
-
         public IActionResult Index()
         {
             return View();
-        }
+		}
 
         [HttpPost]
         public async Task<IActionResult> Index([FromForm] Login data)
         {
-            var user = _mysqlContext.User.Where(x => x.username == data.Username && x.password == data.Password).FirstOrDefault();
-            if (user != null)
+            var admin = _mysqlContext.admins.Where(x => x.username == data.Username && x.password == data.Password).FirstOrDefault();
+            if (admin != null)
             {
                 var claims = new List<Claim>()
                 {
-                    new Claim("username", user.username),
+                    new Claim("username", admin.username),
                     new Claim("role","Admin")
                 };
 

@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "_Nolayout";
+}
+@model List<lapangan>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- nav -->
+    <!-- Landing -->
+
+
+    <!-- About -->
+
+    <!-- Services -->
+
+    <h1 class="head" id="book">Start Your Booking</h1>
+    <div class="container">
+        @foreach (var lapangan in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <img src="~/upload/@lapangan.photo" alt="rover" />
+                    </div>
+                    <div class="card-body">
+                        <div class="namerate">
+                            <h3>@lapangan.NamaLapang</h3>
+                            <div class="ratings">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>@lapangan.alamat</span>
+                        </div>
+                        <div class="details">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>@lapangan.number</span>
+                        </div>
+                        <a href="/booking/create/@lapangan.Id" class="book">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+    <!-- About -->
+
+
+    <!-- Contact -->
+
+    <footer>Created By Achmad Fauzi Indonesia <i class="fa-solid fa-heart"></i></footer>
+
+    <!-- JavaScript -->
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu() {
+            navLinks.style.display = "block";
+            navLinks.style.position = "fixed";
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.display = "none";
+            navLinks.style.right = "-200px";
+        }
+    </script>
+
+</body>
+</html>

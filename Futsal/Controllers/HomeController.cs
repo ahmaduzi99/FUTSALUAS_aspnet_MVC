@@ -18,7 +18,9 @@ namespace Futsal.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<lapangan> lapang = _context.lapang.ToList();
+            return View(lapang);
+
         }
 
         public IActionResult Privacy()

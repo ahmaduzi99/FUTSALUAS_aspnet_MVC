@@ -1,0 +1,67 @@
+﻿@{
+	Layout = "_Nolayout";
+}
+
+
+@model List<booking>
+<main>
+	<div class="head-title">
+		<div class="left">
+			<h1>Dashboard</h1>
+			<ul class="breadcrumb">
+				<li>
+					<a href="#">Dashboard</a>
+				</li>
+				<li><i class='bx bx-chevron-right'></i></li>
+				<li>
+					<a class="active" href="#">Home</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<ul class="box-info">
+	</ul>
+
+
+	<div class="table-data">
+		<div class="order">
+			<div class="head">
+				<h3>List Booking</h3>
+				<i class='bx bx-search'></i>
+				<i class='bx bx-filter'></i>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>Nama Lapang</th>
+						<th>Tanggal Booking</th>
+						<th>Jam Booking</th>
+						<th>Jam BErakhir</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var booking in Model)
+					{
+						<tr>
+							<td>
+
+								<p>@booking.nama</p>
+							</td>
+							<td>@booking.Lapangan.NamaLapang</td>
+							<td>@booking.date</td>
+							<td>@booking.start</td>
+							<td>@booking.end</td>
+							<td>@booking.Status.Stat</td>
+
+						</tr>
+					}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</main>

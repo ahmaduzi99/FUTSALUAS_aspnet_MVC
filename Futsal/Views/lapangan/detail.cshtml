@@ -1,0 +1,106 @@
+﻿@{
+	Layout = "_Nolayout";
+}
+
+@model lapangan
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="~/css/stylee.css">
+
+	<title> CRUD LAPANGAN</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	
+	<!-- SIDEBAR -->
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell'></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+		<!-- MAIN -->
+		<main>
+
+			<ul class="box-info">
+			</ul>
+
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>CRUD LAPANGAN & LIST</h3>
+						<i class='bx bx-search'></i>
+						<i class='bx bx-filter'></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Nama Lapangan</th>
+								<th>Alamat</th>
+								<th>Phone Number</th>
+								<th>Photo</th>
+								<th>Download</th>
+
+
+							</tr>
+						</thead>
+						<tbody>
+							
+								<tr>
+									<td>
+									<p>@Model.NamaLapang</p>
+									</td>
+									<td>@Model.alamat</td>
+									<td>@Model.number</td>
+									<td>
+										<img src="~/upload/@Model.photo" width="200px;" height="200px" />
+									</td>
+								<td><a href="/user/download/@Model.Id" download>Download Photo</a></td>
+
+								</tr>
+						
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+
+	<script src="~/js/script.js"></script>
+</body>
+</html>

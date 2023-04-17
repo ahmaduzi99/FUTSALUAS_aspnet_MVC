@@ -1,0 +1,182 @@
+﻿@{
+    Layout = "_Nolayout";
+}
+
+@*//@model booking*@
+@model lapangan
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .booking {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .booking-card {
+            width: 70%;
+            height: 580px;
+            margin: 80px;
+            display: flex;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking-time {
+            width: 40%;
+            color: #fff;
+            padding: 5%;
+            background-color: #111;
+        }
+
+        .time-detail {
+            padding: 14% 5%;
+            outline: 3px dashed #fff;
+            text-align: center;
+        }
+
+            .time-detail h2 {
+                margin: 20px;
+                font-size: 35px;
+            }
+
+            .time-detail h3 {
+                margin: 20px;
+            }
+
+            .time-detail hr {
+                margin: 25px 0;
+            }
+
+        .booking-form {
+            width: 60%;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-detail {
+            position: relative;
+            right: 60px;
+            padding: 10px;
+        }
+
+            .form-detail h2 {
+                width: 100%;
+                text-align: center;
+                color: #1fc38b;
+            }
+
+        .form-field {
+            margin: 17px 0;
+        }
+
+            .form-field input, select {
+                padding: 10px 15px;
+                width: 150%;
+            }
+
+        .submit {
+            width: 150%;
+            background-color: #1fc38b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+            .submit:hover {
+                background-color: #fff;
+                color: #1fc38b;
+                border: 1px solid #1fc38b;
+            }
+
+        .close-btn3 {
+            position: absolute;
+            top: 10px;
+            right: 40px;
+            padding: 5px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: #1fc38b;
+            cursor: pointer;
+            border: 1px solid #1fc38b;
+        }
+
+            .close-btn3 a:hover {
+                background-color: #fff;
+                color: #111;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="booking">
+        <div class="booking-card">
+            <div class="booking-time">
+                <div class="time-detail">
+                    <a href="/home/index" class="close-btn3">Home</a>
+                    <h2>TIME OPEN</h2>
+                    <h3>Senin - Minggu</h3>
+                    <p>Siang (7am - 5pm) = Rp.50.000 </p>
+                    <p>Malam (5pm - 8pm) = Rs.120.000 </p>
+                    <h3>Weekend</h3>
+                    <p>Siang (7am - 5pm) = Rs.70.000 </p>
+                    <p>Malam (5pm - 8pm) = Rs.150.000 </p>
+                    <hr>
+                    <h4>Call Us: 0853-1423-4291</h4>
+                </div>
+            </div>
+            <div class="booking-form">
+                <form method="post" asp-controller="Booking" asp-action="Create">
+                    <input value="@Model.Id" name="idLapangan" hidden>
+                    <h2 cl>Book Online</h2>
+                    <div class="form-field">
+                        <label>NamaLapang</label>
+                        <input type="text" name="nama" placeholder="@Model.NamaLapang" class="form-control" disabled>
+                    </div>
+                    <div class="form-field">
+                        <label>Nama</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-field">
+                        <p>Email</p>
+                        <input type="text" name="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="form-field">
+                        <p>No Handphone</p>
+                        <input type="number" name="nphp" class="form-control" placeholder="Your Number">
+                    </div>
+                    <div class="form-field">
+                        <p>Tanggal</p>
+                        <input type="date" name="date" class="form-control" placeholder="Tanggal Booking">
+                    </div>
+                    <div class="form-field">
+                        <p>Jam Start</p>
+                        <input type="time" name="start" class="form-control" placeholder="Jam booking Start">
+                    </div>
+                    <div class="form-field">
+                        <p>Jam End</p>
+                        <input type="time" name="end" class="form-control" placeholder="Jam booking End">
+                    </div>
+
+                    <button class="submit">Book Sekarang</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

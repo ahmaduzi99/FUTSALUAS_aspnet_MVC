@@ -1,0 +1,49 @@
+﻿@model Admin
+@{
+    Layout = "_Nolayout";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Detail Admin</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Username</td>
+                            <td>@Model.username</td>
+                        </tr>
+                        <tr>
+                            <td>Full Name</td>
+                            <td>@Model.email</td>
+                        </tr>
+                         <tr>
+                            <td>Phone</td>
+                            <td>@Model.phone</td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>@Model.alamat</td>
+                        </tr>
+                        <tr>
+                            <td>Photo</td>
+                            <td>
+                                <img src="~/upload/@Model.foto" width="200px;" height="200px" />
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Action</td>
+                            <td><a class="btn-download" href="/admin/download/@Model.Id" download> Download Photo</a></td>
+                            <td><a class="btn btn-danger" href="/admin/index"> Back</a></td>
+                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
