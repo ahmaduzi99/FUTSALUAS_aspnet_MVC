@@ -1,11 +1,13 @@
 ﻿using Futsal.data;
 using Futsal.Models;
 using Futsal.Models.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Futsal.Controllers
 {
+	[Authorize]
 	public class AdminController : Controller
 	{
         private readonly MysqlContext _context;

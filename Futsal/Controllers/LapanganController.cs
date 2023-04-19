@@ -1,12 +1,14 @@
 ﻿using Futsal.data;
 using Futsal.Models;
 using Futsal.Models.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace Futsal.Controllers
 {
+	[Authorize]
 	public class LapanganController : Controller
 	{
         private readonly MysqlContext _context;
@@ -41,6 +43,10 @@ namespace Futsal.Controllers
        [HttpPost]
         public IActionResult Create([FromForm] LapanganForm data, IFormFile photo)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
 
             var fileName = "photo_" + data.NamaLapang + Path.GetExtension(photo.FileName);
             var filepath = Path.Combine(_env.WebRootPath, "upload", fileName);
@@ -88,12 +94,13 @@ namespace Futsal.Controllers
 			return File(System.IO.File.ReadAllBytes(filePath), "image/png", Path.GetFileName(filePath));
 		}
 
-		public IActionResult Delete(int id)
-		{
-			var lapang = _context.lapang.FirstOrDefault(x => x.Id == id);
-			_context.lapang.Remove(lapang);
-			_context.SaveChanges();
-			return RedirectToAction("Index","Lapangan");
-		}
-	}
+        public IActionResult Delete(int id)
+        {
+            var lapang = _context.lapang.FirstOrDefault(x => x.Id == id);
+            _context.lapang.Remove(lapang);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Lapangan");
+        }
+
+    }
 }

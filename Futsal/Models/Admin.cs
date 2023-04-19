@@ -16,7 +16,8 @@ namespace Futsal.Models
         public string username { get; set; }
 
 		public string? email { get; set; }
-
+		[Required]
+		[StringLength(13, MinimumLength = 11, ErrorMessage = "NO telp Min 11 Angka")]
 		public string? phone { get; set; }
 
 		public string? alamat { get; set; }
